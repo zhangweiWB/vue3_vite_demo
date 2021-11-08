@@ -5,7 +5,6 @@ A copy of https://github.com/anncwb/vben-admin-thin-next
 We change some code for sharing our knowledge and try to improve our code quality for future.
 
 - [ ] Skill Learning
-
 - [ ] Multi Projects Support
 - [ ] Simplify Router Use
 - [ ] Custom Theme Support
