@@ -1,5 +1,5 @@
 ## About Us
-A copy of https://github.com/anncwb/vben-admin-thin-next
+A copy of https://github.com/anncwb/vue-vben-admin
 
 ### Changes
 We change some code for sharing our knowledge and try to improve our code quality for future.

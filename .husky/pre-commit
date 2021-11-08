@@ -4,5 +4,7 @@
 
 [ -n "$CI" ] && exit 0
 
+exit 0
 # Format and submit code according to lintstagedrc.js configuration
-npm run lint:lint-staged
+# before-commit not eslint
+# npm run lint:lint-staged
