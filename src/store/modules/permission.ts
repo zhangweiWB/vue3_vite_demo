@@ -6,7 +6,7 @@ import { useI18n } from '/@/hooks/web/useI18n';
 import { useUserStore } from './user';
 import { useAppStoreWithOut } from './app';
 import { toRaw } from 'vue';
-import { transformObjToRoute, flatMultiLevelRoutes } from '/@/router/helper/routeHelper';
+import { flatMultiLevelRoutes } from '/@/router/helper/routeHelper';
 import { transformRouteToMenu } from '/@/router/helper/menuHelper';
 
 import projectSetting from '/@/settings/projectSetting';
@@ -174,7 +174,6 @@ export const usePermissionStore = defineStore({
         //  If you are sure that you do not need to do background dynamic permissions, please comment the entire judgment below
         case PermissionModeEnum.BACK:
           const { createMessage } = useMessage();
-
           createMessage.loading({
             content: t('sys.app.menuLoading'),
             duration: 1,
@@ -191,7 +190,18 @@ export const usePermissionStore = defineStore({
           }
 
           // Dynamically introduce components
-          routeList = transformObjToRoute(routeList);
+          // routeList = transformObjToRoute(routeList);
+
+          const routeFilterByBack = (route: AppRouteRecordRaw) => {
+            const { name } = route;
+            if (!name) return true;
+            return Boolean(
+              filter(routeList, (routeBack: AppRouteRecordRaw) => {
+                return routeBack.name === name;
+              }).length,
+            );
+          };
+          routeList = filter(asyncRoutes, routeFilterByBack);
 
           //  Background routing to menu structure
           const backMenuList = transformRouteToMenu(routeList);
