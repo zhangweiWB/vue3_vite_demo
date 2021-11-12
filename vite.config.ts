@@ -8,11 +8,11 @@ import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugin';
 import { OUTPUT_DIR } from './build/constant';
-
+import mpa from 'vite-plugin-mpa';
+import htmlTemplate from 'vite-plugin-html-template';
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
-
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
@@ -23,11 +23,16 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
 
   const env = loadEnv(mode, root);
-
   // The boolean type read by loadEnv is a string. This function can be converted to boolean type
   const viteEnv = wrapperEnv(env);
 
-  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
+  const {
+    VITE_PORT,
+    VITE_PUBLIC_PATH,
+    VITE_PROXY,
+    VITE_DROP_CONSOLE,
+    VITE_APP_BUILD_PROJECT = 'default',
+  } = viteEnv;
 
   const isBuild = command === 'build';
 
@@ -49,6 +54,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         {
           find: /\/#\//,
           replacement: pathResolve('types') + '/',
+        },
+        {
+          find: /\/@current_project\//,
+          replacement: pathResolve(`src/pages/${VITE_APP_BUILD_PROJECT}/`) + '/',
         },
       ],
     },
@@ -90,7 +99,36 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
 
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
-    plugins: createVitePlugins(viteEnv, isBuild),
+    plugins: [
+      ...createVitePlugins(viteEnv, isBuild),
+      // mpa({
+      //   open: 'false',
+      //   scanDir: 'src/pages',
+      //   scanFile: 'main.ts',
+      // }),
+      // htmlTemplate({
+      //   pagesDir: 'src/pages',
+      //   pages: {
+      //     default: {
+      //       template: 'public/index.html',
+      //       title: 'Mono1 Page',
+      //       entry: 'src/pages/default/main.ts',
+      //     },
+      //     icbc: {
+      //       template: 'public/index.html',
+      //       title: 'ICBC Page',
+      //       entry: 'src/pages/icbc/main.ts',
+      //     },
+      //   },
+      // }),
+      //use /public/index.html as an entry file
+      htmlTemplate({
+        data: {
+          title: 'single Page',
+        },
+        entry: '/src/main',
+      }),
+    ],
 
     optimizeDeps: {
       // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly

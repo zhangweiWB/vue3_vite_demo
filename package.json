@@ -25,7 +25,8 @@
     "test:gzip": "npx http-server dist --cors --gzip -c-1",
     "test:br": "npx http-server dist --cors --brotli -c-1",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
-    "gen:icon": "esno ./build/generate/icon/index.ts"
+    "gen:icon": "esno ./build/generate/icon/index.ts",
+    "mono1": "vite src/pages/default/ --config ./vite.config.ts"
   },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
@@ -57,6 +58,8 @@
     "sortablejs": "^1.14.0",
     "tinymce": "^5.10.0",
     "vditor": "^3.8.7",
+    "vite-plugin-html-template": "^1.0.6",
+    "vite-plugin-mpa": "^1.1.1",
     "vue": "^3.2.21",
     "vue-i18n": "^9.1.9",
     "vue-json-pretty": "^2.0.4",
