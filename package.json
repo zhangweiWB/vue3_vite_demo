@@ -7,26 +7,12 @@
     "url": "https://github.com/anncwb"
   },
   "scripts": {
-    "bootstrap": "pnpm install",
-    "serve": "npm run dev",
     "dev": "vite",
     "build": "cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts",
-    "build:test": "cross-env vite build --mode test && esno ./build/script/postBuild.ts",
-    "build:no-cache": "pnpm clean:cache && npm run build",
     "report": "cross-env REPORT=true npm run build",
-    "type:check": "vue-tsc --noEmit --skipLibCheck",
     "preview": "npm run build && vite preview",
-    "preview:dist": "vite preview",
-    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
-    "clean:lib": "rimraf node_modules",
-    "test:unit": "jest",
-    "test:unit-coverage": "jest --coverage",
-    "test:gzip": "npx http-server dist --cors --gzip -c-1",
-    "test:br": "npx http-server dist --cors --brotli -c-1",
-    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
-    "gen:icon": "esno ./build/generate/icon/index.ts",
-    "mono1": "vite src/pages/default/ --config ./vite.config.ts"
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && yarn install",
+    "gen:icon": "esno ./build/generate/icon/index.ts"
   },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
