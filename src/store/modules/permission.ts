@@ -190,10 +190,8 @@ export const usePermissionStore = defineStore({
           } catch (error) {
             console.error(error);
           }
-
           // Dynamically introduce components
           // routeList = transformObjToRoute(routeList);
-
           const routeFilterByBack = (route: AppRouteRecordRaw) => {
             const { name } = route;
             if (!name) return true;

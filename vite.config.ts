@@ -122,12 +122,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       //   },
       // }),
       //use /public/index.html as an entry file
-      htmlTemplate({
-        data: {
-          title: 'single Page',
-        },
-        entry: '/src/main',
-      }),
+      // htmlTemplate({
+      //   data: {
+      //     title: 'single Page',
+      //   },
+      //   entry: '/src/main',
+      // }),
     ],
 
     optimizeDeps: {
