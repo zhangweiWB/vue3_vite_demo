@@ -10,7 +10,6 @@ export function configSvgIconsPlugin(isBuild: boolean) {
   const svgIconsPlugin = SvgIconsPlugin({
     iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
     svgoOptions: isBuild,
-    // default
     symbolId: 'icon-[dir]-[name]',
   });
   return svgIconsPlugin;

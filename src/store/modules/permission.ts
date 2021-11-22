@@ -14,8 +14,7 @@ import projectSetting from '/@/settings/projectSetting';
 import { PermissionModeEnum } from '/@/enums/appEnum';
 
 // import { asyncRoutes } from '/@/router/routes';
-import { asyncRoutes } from '/@/router/routes';
-console.log('asyncRoutes', asyncRoutes);
+import { asyncRoutes } from '/@current_project/router/routes';
 import { ERROR_LOG_ROUTE, PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
 
 import { filter } from '/@/utils/helper/treeHelper';
@@ -205,6 +204,9 @@ export const usePermissionStore = defineStore({
 
           //  Background routing to menu structure
           const backMenuList = transformRouteToMenu(routeList);
+          backMenuList.sort((a, b) => {
+            return (a.meta?.orderNo || 0) - (b.meta?.orderNo || 0);
+          });
           this.setBackMenuList(backMenuList);
 
           // remove meta.ignoreRoute item

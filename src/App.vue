@@ -13,9 +13,7 @@
   import { useLocale } from '/@/locales/useLocale';
 
   // support Multi-language
-  const {getAntdLocale} = useLocale();
-  const name="sdfsklja";
-  if(true){console.log("水电费撒地方")}
+  const { getAntdLocale } = useLocale();
   // Listening to page changes and dynamically changing site titles
   useTitle();
 </script>
