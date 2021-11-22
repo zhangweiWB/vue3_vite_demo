@@ -8,8 +8,6 @@ import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugin';
 import { OUTPUT_DIR } from './build/constant';
-import mpa from 'vite-plugin-mpa';
-import htmlTemplate from 'vite-plugin-html-template';
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
@@ -35,7 +33,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   } = viteEnv;
 
   const isBuild = command === 'build';
-
+  const { themeConf } = require(`./src/pages/${VITE_APP_BUILD_PROJECT}/theme/index.ts`);
   return {
     base: VITE_PUBLIC_PATH,
     root,
@@ -92,43 +90,14 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
-          modifyVars: generateModifyVars(),
+          modifyVars: { ...generateModifyVars(), ...themeConf },
           javascriptEnabled: true,
         },
       },
     },
 
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
-    plugins: [
-      ...createVitePlugins(viteEnv, isBuild),
-      // mpa({
-      //   open: 'false',
-      //   scanDir: 'src/pages',
-      //   scanFile: 'main.ts',
-      // }),
-      // htmlTemplate({
-      //   pagesDir: 'src/pages',
-      //   pages: {
-      //     default: {
-      //       template: 'public/index.html',
-      //       title: 'Mono1 Page',
-      //       entry: 'src/pages/default/main.ts',
-      //     },
-      //     icbc: {
-      //       template: 'public/index.html',
-      //       title: 'ICBC Page',
-      //       entry: 'src/pages/icbc/main.ts',
-      //     },
-      //   },
-      // }),
-      //use /public/index.html as an entry file
-      // htmlTemplate({
-      //   data: {
-      //     title: 'single Page',
-      //   },
-      //   entry: '/src/main',
-      // }),
-    ],
+    plugins: [...createVitePlugins(viteEnv, isBuild)],
 
     optimizeDeps: {
       // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly
