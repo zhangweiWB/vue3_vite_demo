@@ -28,7 +28,7 @@
   import { defineComponent } from 'vue';
   import { BasicTable, useTable, BasicColumn, TableAction } from '/@/components/Table';
 
-  import { demoListApi } from '/@/api/demo/table';
+  import { demoListApi } from '/@current_project/api/demo/table';
   const columns: BasicColumn[] = [
     {
       title: 'ID',

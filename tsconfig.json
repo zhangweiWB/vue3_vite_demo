@@ -24,7 +24,7 @@
     "paths": {
       "/@/*": ["src/*"],
       "/#/*": ["types/*"],
-      "/@current_project/*": ["src/pages/*"],
+      "/@current_project/*": ["src/pages/icbc/*", "src/pages/default/*"],
     }
   },
   "include": [

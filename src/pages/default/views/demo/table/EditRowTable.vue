@@ -17,10 +17,10 @@
     ActionItem,
     EditRecordRow,
   } from '/@/components/Table';
-  import { optionsListApi } from '/@/api/demo/select';
+  import { optionsListApi } from '/@current_project/api/demo/select';
 
-  import { demoListApi } from '/@/api/demo/table';
-  import { treeOptionsListApi } from '/@/api/demo/tree';
+  import { demoListApi } from '/@current_project/api/demo/table';
+  import { treeOptionsListApi } from '/@current_project/api/demo/tree';
   import { cloneDeep } from 'lodash-es';
   import { useMessage } from '/@/hooks/web/useMessage';
 

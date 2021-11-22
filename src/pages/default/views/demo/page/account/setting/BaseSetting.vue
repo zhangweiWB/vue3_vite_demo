@@ -31,10 +31,10 @@
   import { useMessage } from '/@/hooks/web/useMessage';
 
   import headerImg from '/@/assets/images/header.jpg';
-  import { accountInfoApi } from '/@/api/demo/account';
+  import { accountInfoApi } from '/@current_project/api/demo/account';
   import { baseSetschemas } from './data';
   import { useUserStore } from '/@current_project/store/modules/user';
-  import { uploadApi } from '/@/api/sys/upload';
+  import { uploadApi } from '/@current_project/api/sys/upload';
 
   export default defineComponent({
     components: {

@@ -62,9 +62,9 @@
   import { useMessage } from '/@/hooks/web/useMessage';
   import { PageWrapper } from '/@/components/Page';
 
-  import { optionsListApi } from '/@/api/demo/select';
+  import { optionsListApi } from '/@current_project/api/demo/select';
   import { useDebounceFn } from '@vueuse/core';
-  import { treeOptionsListApi } from '/@/api/demo/tree';
+  import { treeOptionsListApi } from '/@current_project/api/demo/tree';
   import { Select } from 'ant-design-vue';
   import { cloneDeep } from 'lodash-es';
 

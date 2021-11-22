@@ -8,7 +8,7 @@
   import { BasicTable, useTable } from '/@/components/Table';
   import { getMergeHeaderColumns } from './tableData';
 
-  import { demoListApi } from '/@/api/demo/table';
+  import { demoListApi } from '/@current_project/api/demo/table';
 
   export default defineComponent({
     components: { BasicTable },

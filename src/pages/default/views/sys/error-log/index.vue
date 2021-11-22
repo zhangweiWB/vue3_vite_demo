@@ -36,7 +36,7 @@
   import { useMessage } from '/@/hooks/web/useMessage';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { useErrorLogStore } from '/@current_project/store/modules/errorLog';
-  import { fireErrorApi } from '/@/api/demo/error';
+  import { fireErrorApi } from '/@current_project/api/demo/error';
   import { getColumns } from './data';
   import { cloneDeep } from 'lodash-es';
 

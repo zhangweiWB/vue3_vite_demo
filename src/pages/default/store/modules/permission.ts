@@ -19,8 +19,8 @@ import { ERROR_LOG_ROUTE, PAGE_NOT_FOUND_ROUTE } from '/@current_project/router/
 
 import { filter } from '/@/utils/helper/treeHelper';
 
-import { getMenuList } from '/@/api/sys/menu';
-import { getPermCode } from '/@/api/sys/user';
+import { getMenuList } from '/@current_project/api/sys/menu';
+import { getPermCode } from '/@current_project/api/sys/user';
 
 import { useMessage } from '/@/hooks/web/useMessage';
 import { PageEnum } from '/@/enums/pageEnum';

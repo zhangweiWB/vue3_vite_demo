@@ -33,7 +33,7 @@
   import { BasicTable, TableActionType } from '/@/components/Table';
   import { getBasicColumns, getBasicShortColumns } from './tableData';
   import { useMessage } from '/@/hooks/web/useMessage';
-  import { demoListApi } from '/@/api/demo/table';
+  import { demoListApi } from '/@current_project/api/demo/table';
   export default defineComponent({
     components: { BasicTable },
     setup() {
