@@ -43,6 +43,71 @@ const dashboardRoute = {
   ],
 };
 
+const chartDemo = {
+  path: '/charts',
+  name: 'Charts',
+  redirect: '/charts/echarts/map',
+  meta: {
+    orderNo: 500,
+    icon: 'ion:bar-chart-outline',
+    title: 'routes.demo.charts.charts',
+  },
+  children: [
+    {
+      path: 'baiduMap',
+      name: 'BaiduMap',
+      meta: {
+        title: ('routes.demo.charts.baiduMap'),
+      },
+    },
+    {
+      path: 'aMap',
+      name: 'AMap',
+      meta: {
+        title: ('routes.demo.charts.aMap'),
+      },
+    },
+    {
+      path: 'googleMap',
+      name: 'GoogleMap',
+      meta: {
+        title: ('routes.demo.charts.googleMap'),
+      },
+    },
+    {
+      path: 'echarts',
+      name: 'Echarts',
+      meta: {
+        title: 'Echarts',
+      },
+      redirect: '/charts/echarts/map',
+      children: [
+        {
+          path: 'map',
+          name: 'Map',
+          meta: {
+            title: ('routes.demo.charts.map'),
+          },
+        },
+        {
+          path: 'line',
+          name: 'Line',
+          meta: {
+            title: ('routes.demo.charts.line'),
+          },
+        },
+        {
+          path: 'pie',
+          name: 'Pie',
+          meta: {
+            title: ('routes.demo.charts.pie'),
+          },
+        },
+      ],
+    },
+  ],
+};
+
 const backRoute = {
   path: 'back',
   name: 'PermissionBackDemo',
@@ -279,7 +344,7 @@ export default [
       switch (id) {
         case '1':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[0].path;
-          menu = [dashboardRoute, aboutUs];
+          menu = [dashboardRoute, aboutUs, chartDemo];
           break;
         case '2':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[1].path;
