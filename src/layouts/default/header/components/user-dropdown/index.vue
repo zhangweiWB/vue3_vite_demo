@@ -42,7 +42,7 @@
 
   import { DOC_URL } from '/@/settings/siteSetting';
 
-  import { useUserStore } from '/@/store/modules/user';
+  import { useUserStore } from '/@current_project/store/modules/user';
   import { useHeaderSetting } from '/@/hooks/setting/useHeaderSetting';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { useDesign } from '/@/hooks/web/useDesign';

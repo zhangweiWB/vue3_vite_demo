@@ -38,14 +38,14 @@
 
   import { useGo } from '/@/hooks/web/usePage';
 
-  import { useMultipleTabStore } from '/@/store/modules/multipleTab';
-  import { useUserStore } from '/@/store/modules/user';
+  import { useMultipleTabStore } from '/@current_project/store/modules/multipleTab';
+  import { useUserStore } from '/@current_project/store/modules/user';
 
   import { initAffixTabs, useTabsDrag } from './useMultipleTabs';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useMultipleTabSetting } from '/@/hooks/setting/useMultipleTabSetting';
 
-  import { REDIRECT_NAME } from '/@/router/constant';
+  import { REDIRECT_NAME } from '/@current_project/router/constant';
   import { listenerRouteChange } from '/@/logics/mitt/routeChange';
 
   import { useRouter } from 'vue-router';

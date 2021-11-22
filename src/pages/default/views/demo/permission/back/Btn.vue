@@ -63,11 +63,11 @@
   import CurrentPermissionMode from '../CurrentPermissionMode.vue';
   import { usePermission } from '/@/hooks/web/usePermission';
   import { Authority } from '/@/components/Authority';
-  import { usePermissionStore } from '/@/store/modules/permission';
+  import { usePermissionStore } from '/@current_project/store/modules/permission';
   import { PermissionModeEnum } from '/@/enums/appEnum';
   import { PageWrapper } from '/@/components/Page';
-  import { useAppStore } from '/@/store/modules/app';
-  import { useUserStore } from '/@/store/modules/user';
+  import { useAppStore } from '/@current_project/store/modules/app';
+  import { useUserStore } from '/@current_project/store/modules/user';
 
   export default defineComponent({
     components: { Alert, PageWrapper, CurrentPermissionMode, Divider, Authority },

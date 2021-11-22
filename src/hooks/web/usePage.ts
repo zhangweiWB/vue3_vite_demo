@@ -5,7 +5,7 @@ import { isString } from '/@/utils/is';
 import { unref } from 'vue';
 
 import { useRouter } from 'vue-router';
-import { REDIRECT_NAME } from '/@/router/constant';
+import { REDIRECT_NAME } from '/@current_project/router/constant';
 
 export type RouteLocationRawEx = Omit<RouteLocationRaw, 'path'> & { path: PageEnum };
 

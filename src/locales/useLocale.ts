@@ -6,7 +6,7 @@ import type { LocaleType } from '/#/config';
 import moment from 'moment';
 
 import { i18n } from './setupI18n';
-import { useLocaleStoreWithOut } from '/@/store/modules/locale';
+import { useLocaleStoreWithOut } from '/@current_project/store/modules/locale';
 import { unref, computed } from 'vue';
 import { loadLocalePool, setHtmlPageLang } from './helper';
 

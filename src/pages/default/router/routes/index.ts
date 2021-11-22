@@ -1,6 +1,6 @@
-import type { AppRouteRecordRaw, AppRouteModule } from '/@/router/types';
+import type { AppRouteRecordRaw, AppRouteModule } from '../types';
 
-import { PAGE_NOT_FOUND_ROUTE, REDIRECT_ROUTE } from '/@/router/routes/basic';
+import { PAGE_NOT_FOUND_ROUTE, REDIRECT_ROUTE } from './basic';
 
 import { mainOutRoutes } from './mainOut';
 import { PageEnum } from '/@/enums/pageEnum';
@@ -30,7 +30,7 @@ export const RootRoute: AppRouteRecordRaw = {
 export const LoginRoute: AppRouteRecordRaw = {
   path: '/login',
   name: 'Login',
-  component: () => import('/@/views/sys/login/Login.vue'),
+  component: () => import('/@current_project/views/sys/login/Login.vue'),
   meta: {
     title: t('routes.basic.login'),
   },

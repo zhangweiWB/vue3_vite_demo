@@ -3,7 +3,7 @@ import { updateHeaderBgColor, updateSidebarBgColor } from '/@/logics/theme/updat
 import { updateColorWeak } from '/@/logics/theme/updateColorWeak';
 import { updateGrayMode } from '/@/logics/theme/updateGrayMode';
 
-import { useAppStore } from '/@/store/modules/app';
+import { useAppStore } from '/@current_project/store/modules/app';
 import { ProjectConfig } from '/#/config';
 import { changeTheme } from '/@/logics/theme';
 import { updateDarkTheme } from '/@/logics/theme/dark';

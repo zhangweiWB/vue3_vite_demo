@@ -16,7 +16,7 @@
   </SubMenu>
 </template>
 <script lang="ts">
-  import type { Menu as MenuType } from '/@/router/types';
+  import type { Menu as MenuType } from '/@current_project/router/types';
   import { defineComponent, computed } from 'vue';
   import { Menu } from 'ant-design-vue';
   import { useDesign } from '/@/hooks/web/useDesign';

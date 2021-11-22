@@ -63,7 +63,7 @@
   import { computed, defineComponent } from 'vue';
   import { Alert, Divider } from 'ant-design-vue';
   import CurrentPermissionMode from '../CurrentPermissionMode.vue';
-  import { useUserStore } from '/@/store/modules/user';
+  import { useUserStore } from '/@current_project/store/modules/user';
   import { RoleEnum } from '/@/enums/roleEnum';
   import { usePermission } from '/@/hooks/web/usePermission';
   import { Authority } from '/@/components/Authority';

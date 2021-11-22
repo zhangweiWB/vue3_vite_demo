@@ -19,7 +19,7 @@
 </template>
 <script lang="ts">
   import type { MenuState } from './types';
-  import type { Menu as MenuType } from '/@/router/types';
+  import type { Menu as MenuType } from '/@current_project/router/types';
   import type { RouteLocationNormalizedLoaded } from 'vue-router';
   import { defineComponent, computed, ref, unref, reactive, toRefs, watch } from 'vue';
   import { useDesign } from '/@/hooks/web/useDesign';
@@ -27,7 +27,7 @@
   import SimpleSubMenu from './SimpleSubMenu.vue';
   import { listenerRouteChange } from '/@/logics/mitt/routeChange';
   import { propTypes } from '/@/utils/propTypes';
-  import { REDIRECT_NAME } from '/@/router/constant';
+  import { REDIRECT_NAME } from '/@current_project/router/constant';
   import { useRouter } from 'vue-router';
   import { isFunction, isUrl } from '/@/utils/is';
   import { openWindow } from '/@/utils';

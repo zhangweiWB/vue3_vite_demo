@@ -71,7 +71,7 @@
   import { useDesign } from '/@/hooks/web/useDesign';
   import { isNumber } from '/@/utils/is';
   import { useLocale } from '/@/locales/useLocale';
-  import { useAppStore } from '/@/store/modules/app';
+  import { useAppStore } from '/@current_project/store/modules/app';
 
   const tinymceProps = {
     options: {

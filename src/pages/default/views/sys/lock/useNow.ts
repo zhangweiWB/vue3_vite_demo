@@ -1,6 +1,6 @@
 import { dateUtil } from '/@/utils/dateUtil';
 import { reactive, toRefs } from 'vue';
-import { useLocaleStore } from '/@/store/modules/locale';
+import { useLocaleStore } from '/@current_project/store/modules/locale';
 import { tryOnMounted, tryOnUnmounted } from '@vueuse/core';
 
 export function useNow(immediate = true) {

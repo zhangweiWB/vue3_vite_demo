@@ -73,7 +73,7 @@
   import { useGlobSetting } from '/@/hooks/setting';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { useDesign } from '/@/hooks/web/useDesign';
-  import { useLocaleStore } from '/@/store/modules/locale';
+  import { useLocaleStore } from '/@current_project/store/modules/locale';
 
   defineProps({
     sessionTimeout: {

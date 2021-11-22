@@ -78,7 +78,7 @@
   </div>
 </template>
 <script lang="ts">
-  import type { Menu } from '/@/router/types';
+  import type { Menu } from '/@current_project/router/types';
   import type { CSSProperties } from 'vue';
   import { computed, defineComponent, onMounted, ref, unref, watch } from 'vue';
   import type { RouteLocationNormalized } from 'vue-router';
@@ -87,7 +87,7 @@
   import { Icon } from '/@/components/Icon';
   import { AppLogo } from '/@/components/Application';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
-  import { usePermissionStore } from '/@/store/modules/permission';
+  import { usePermissionStore } from '/@current_project/store/modules/permission';
   import { useDragLine } from './useLayoutSider';
   import { useGlobSetting } from '/@/hooks/setting';
   import { useDesign } from '/@/hooks/web/useDesign';
@@ -95,7 +95,7 @@
   import { useGo } from '/@/hooks/web/usePage';
   import { SIDE_BAR_MINI_WIDTH, SIDE_BAR_SHOW_TIT_MINI_WIDTH } from '/@/enums/appEnum';
   import clickOutside from '/@/directives/clickOutside';
-  import { getChildrenMenus, getCurrentParentPath, getShallowMenus } from '/@/router/menus';
+  import { getChildrenMenus, getCurrentParentPath, getShallowMenus } from '/@current_project/router/menus';
   import { listenerRouteChange } from '/@/logics/mitt/routeChange';
   import LayoutTrigger from '../trigger/index.vue';
 

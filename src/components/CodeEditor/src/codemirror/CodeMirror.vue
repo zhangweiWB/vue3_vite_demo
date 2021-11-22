@@ -5,7 +5,7 @@
 <script lang="ts" setup>
   import { ref, onMounted, onUnmounted, watchEffect, watch, unref, nextTick } from 'vue';
   import { useDebounceFn } from '@vueuse/core';
-  import { useAppStore } from '/@/store/modules/app';
+  import { useAppStore } from '/@current_project/store/modules/app';
   import { useWindowSizeFn } from '/@/hooks/event/useWindowSizeFn';
   import CodeMirror from 'codemirror';
   import { MODE } from './../typing';

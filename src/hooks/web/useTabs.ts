@@ -3,8 +3,8 @@ import type { RouteLocationNormalized, Router } from 'vue-router';
 import { useRouter } from 'vue-router';
 import { unref } from 'vue';
 
-import { useMultipleTabStore } from '/@/store/modules/multipleTab';
-import { useAppStore } from '/@/store/modules/app';
+import { useMultipleTabStore } from '/@current_project/store/modules/multipleTab';
+import { useAppStore } from '/@current_project/store/modules/app';
 
 enum TableActionEnum {
   REFRESH,
