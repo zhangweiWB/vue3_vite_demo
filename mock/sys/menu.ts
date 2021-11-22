@@ -6,10 +6,10 @@ import { t } from '/@/hooks/web/useI18n';
 
 // single
 const dashboardRoute = {
-  path: '/dashboard',
-  name: 'Dashboard',
+  path: 'dashboard',
+  name: 'dashboard',
   component: 'LAYOUT',
-  redirect: '/dashboard/analysis',
+  redirect: 'analysis',
   meta: {
     title: 'routes.dashboard.dashboard',
     hideChildrenInMenu: true,
@@ -19,7 +19,6 @@ const dashboardRoute = {
     {
       path: 'analysis',
       name: 'Analysis',
-      component: '/dashboard/analysis/index',
       meta: {
         hideMenu: true,
         hideBreadcrumb: true,
@@ -31,7 +30,6 @@ const dashboardRoute = {
     {
       path: 'workbench',
       name: 'Workbench',
-      component: '/dashboard/workbench/index',
       meta: {
         hideMenu: true,
         hideBreadcrumb: true,
@@ -44,9 +42,9 @@ const dashboardRoute = {
 };
 
 const chartDemo = {
-  path: '/charts',
+  path: 'charts',
   name: 'Charts',
-  redirect: '/charts/echarts/map',
+  redirect: 'echarts/map',
   meta: {
     orderNo: 500,
     icon: 'ion:bar-chart-outline',
@@ -107,6 +105,45 @@ const chartDemo = {
     },
   ],
 };
+
+const demo = [
+  {
+    path: '/demo1',
+    name: 'demo1',
+    component: 'LAYOUT',
+    redirect: 'dashboard',
+    meta: {
+      title: '测试1',
+      hideChildrenInMenu: true,
+      icon: 'bx:bx-home',
+    },
+    children: [dashboardRoute, chartDemo]
+  },
+  {
+    path: '/demo2',
+    name: 'demo2',
+    component: 'LAYOUT',
+    redirect: 'dashboard',
+    meta: {
+      title: '测试2',
+      hideChildrenInMenu: true,
+      icon: 'bx:bx-home',
+    },
+    children: [chartDemo, dashboardRoute]
+  },
+  {
+    path: '/demo3',
+    name: 'demo3',
+    component: 'LAYOUT',
+    redirect: 'dashboard',
+    meta: {
+      title: '测试3',
+      hideChildrenInMenu: true,
+      icon: 'bx:bx-home',
+    },
+    children: [dashboardRoute, chartDemo]
+  },
+]
 
 const backRoute = {
   path: 'back',
@@ -344,7 +381,8 @@ export default [
       switch (id) {
         case '1':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[0].path;
-          menu = [dashboardRoute, aboutUs, chartDemo];
+          // menu = [dashboardRoute, aboutUs, chartDemo];
+          menu = demo;
           break;
         case '2':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[1].path;

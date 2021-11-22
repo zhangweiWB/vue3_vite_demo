@@ -11,7 +11,6 @@ import { PermissionModeEnum } from '/@/enums/appEnum';
 import { pathToRegexp } from 'path-to-regexp';
 
 const modules = import.meta.globEager('./modules/**/*.ts');
-
 const menuModules: MenuModule[] = [];
 
 Object.keys(modules).forEach((key) => {
@@ -53,11 +52,16 @@ const staticMenus: Menu[] = [];
 
 async function getAsyncMenus() {
   const permissionStore = usePermissionStore();
+  const leftMenu = permissionStore.getActiveMenuItemList.children || []
+
+  console.log("侧边栏数据：")
+  console.log(leftMenu)
+
   if (isBackMode()) {
-    return permissionStore.getBackMenuList.filter((item) => !item.meta?.hideMenu && !item.hideMenu);
+    return leftMenu.filter((item) => !item.meta?.hideMenu && !item.hideMenu);
   }
   if (isRouteMappingMode()) {
-    return permissionStore.getFrontMenuList.filter((item) => !item.hideMenu);
+    return leftMenu.filter((item) => !item.hideMenu);
   }
   return staticMenus;
 }

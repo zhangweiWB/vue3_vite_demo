@@ -8,7 +8,7 @@ import { useAppStoreWithOut } from './app';
 import { toRaw } from 'vue';
 import { flatMultiLevelRoutes } from '/@current_project/router/helper/routeHelper';
 import { transformRouteToMenu } from '/@current_project/router/helper/menuHelper';
-
+import { isEmpty } from '/@/utils/is';
 import projectSetting from '/@/settings/projectSetting';
 
 import { PermissionModeEnum } from '/@/enums/appEnum';
@@ -48,6 +48,12 @@ export const usePermissionStore = defineStore({
     backMenuList: [],
     // menu List
     frontMenuList: [],
+
+    // 顶部的Menu列表数据
+    topMenuTree: [],
+
+    // 当前激活的Menu数据
+    activeMenuItemList: '',
   }),
   getters: {
     getPermCodeList(): string[] | number[] {
@@ -64,6 +70,12 @@ export const usePermissionStore = defineStore({
     },
     getIsDynamicAddedRoute(): boolean {
       return this.isDynamicAddedRoute;
+    },
+    getTopMenuTree(): Menu[] {
+      return this.topMenuTree;
+    },
+    getActiveMenuItemList(): Menu[] {
+      return this.activeMenuItemList;
     },
   },
   actions: {
@@ -87,16 +99,27 @@ export const usePermissionStore = defineStore({
     setDynamicAddedRoute(added: boolean) {
       this.isDynamicAddedRoute = added;
     },
+
     resetState(): void {
       this.isDynamicAddedRoute = false;
       this.permCodeList = [];
       this.backMenuList = [];
       this.lastBuildMenuTime = 0;
     },
+
     async changePermissionCode() {
       const codeList = await getPermCode();
       this.setPermCodeList(codeList);
     },
+
+    setTopMenuTree(list: Menu[]) {
+      this.topMenuTree = list; // 用户切换的时候变更activeMenuItemList
+    },
+
+    setActiveMenuItemList(list: Menu[]) {
+      this.activeMenuItemList = list; // 用户切换的时候变更activeMenuItemList
+    },
+
     async buildRoutesAction(): Promise<AppRouteRecordRaw[]> {
       const { t } = useI18n();
       const userStore = useUserStore();
@@ -117,6 +140,35 @@ export const usePermissionStore = defineStore({
         const { meta } = route;
         const { ignoreRoute } = meta || {};
         return !ignoreRoute;
+      };
+
+      const filterMenuDeep = (routes) => {
+        const filter_Menu = (current, parent_path = '') => {
+          // const filter_current = current.filter(_ => true);
+          return current.map((item) => mapRouters(item, parent_path));
+        };
+        const mapRouters = (item, parent_path) => {
+          const { children = null, path = '' } = item;
+          if (children && !isEmpty(children)) {
+            const my_parent_children_path = parent_path + path + '/';
+            item.children = filter_Menu(children, my_parent_children_path);
+          }
+          // item['redirect'] = getInitRouterPath(item)
+          return item;
+        };
+        const total_menus = filter_Menu(routes);
+        const getRedirectPath = (data) => {
+          const getPath = (route = {}) => {
+            const { children = [] } = route;
+            const [first = {}] = children;
+            return !isEmpty(children) ? route.path + '/' + getPath(first) : route.path;
+          };
+          return !isEmpty(data) ? getPath(Array.isArray(data) ? data[0] : data) : '/';
+        };
+        return total_menus.map((menu) => {
+          menu['redirect'] = getRedirectPath(menu);
+          return menu;
+        });
       };
 
       /**
@@ -212,6 +264,8 @@ export const usePermissionStore = defineStore({
           // remove meta.ignoreRoute item
           routeList = filter(routeList, routeRemoveIgnoreFilter);
           routeList = routeList.filter(routeRemoveIgnoreFilter);
+
+          this.setTopMenuTree(filterMenuDeep(routeList));
 
           routeList = flatMultiLevelRoutes(routeList);
           routes = [PAGE_NOT_FOUND_ROUTE, ...routeList];

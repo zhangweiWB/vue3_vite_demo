@@ -9,7 +9,7 @@ export const EXCEPTION_COMPONENT = () => import('/@current_project/views/sys/exc
 /**
  * @description: default layout
  */
-export const LAYOUT = () => import('/@/layouts/default/index.vue');
+export const LAYOUT = () => import('/@/layouts/qihoo/index.vue');
 
 /**
  * @description: parent-layout

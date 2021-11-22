@@ -57,7 +57,15 @@ module.exports = defineConfig({
     'vue/attributes-order': 'off',
     'vue/one-component-per-file': 'off',
     'vue/html-closing-bracket-newline': 'off',
-    'vue/max-attributes-per-line': 'off',
+    'vue/max-attributes-per-line': ['error',
+      {
+        singleline: 10,
+        multiline: {
+          max: 1,
+          allowFirstLine: true
+        }
+      }
+    ],
     'vue/multiline-html-element-content-newline': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/attribute-hyphenation': 'off',
