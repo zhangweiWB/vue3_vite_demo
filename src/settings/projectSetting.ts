@@ -63,7 +63,7 @@ const setting: ProjectConfig = {
     // Whether to show top
     show: true,
     // theme
-    theme: ThemeEnum.LIGHT,
+    theme: ThemeEnum.DARK,
     // Whether to enable the lock screen function
     useLockPage: true,
     // Whether to show the full screen button

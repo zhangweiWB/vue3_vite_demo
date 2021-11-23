@@ -50,14 +50,14 @@ export function initAppConfigStore() {
   appStore.setProjectConfig(projCfg);
 
   // init dark mode
-  updateDarkTheme(darkMode);
-  if (darkMode === ThemeEnum.DARK) {
-    updateHeaderBgColor();
-    updateSidebarBgColor();
-  } else {
-    headerBgColor && updateHeaderBgColor(headerBgColor);
-    bgColor && updateSidebarBgColor(bgColor);
-  }
+  // updateDarkTheme(darkMode);
+  // if (darkMode === ThemeEnum.DARK) {
+  //   updateHeaderBgColor();
+  //   updateSidebarBgColor();
+  // } else {
+  //   headerBgColor && updateHeaderBgColor(headerBgColor);
+  //   bgColor && updateSidebarBgColor(bgColor);
+  // }
   // init store
   localeStore.initLocale();
 

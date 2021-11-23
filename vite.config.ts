@@ -92,6 +92,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         less: {
           modifyVars: { ...generateModifyVars(), ...themeConf },
           javascriptEnabled: true,
+          // additionalData: `@import "${resolve(__dirname, `src/design/var.less`)}";`,
         },
       },
     },

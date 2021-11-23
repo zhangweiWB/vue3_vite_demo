@@ -15,7 +15,9 @@
     name: 'LayoutFeatures',
     components: {
       BackTop,
-      LayoutLockPage: createAsyncComponent(() => import('/@current_project/views/sys/lock/index.vue')),
+      LayoutLockPage: createAsyncComponent(
+        () => import('/@current_project/views/sys/lock/index.vue'),
+      ),
       SettingDrawer: createAsyncComponent(() => import('/@/layouts/default/setting/index.vue')),
       SessionTimeoutLogin,
     },

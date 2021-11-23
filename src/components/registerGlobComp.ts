@@ -5,7 +5,8 @@ import {
   Button as AntButton,
   Input,
   Layout,
-} from 'ant-design-vue';
+} from '@q/design';
+// } from 'ant-design-vue';
 
 const compList = [AntButton.Group];
 

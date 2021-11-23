@@ -141,7 +141,7 @@ const themeConf = {
   'primary-10': "mix(color(~`colorPalette('@{primary-color}', 2) `), @component-background, 98%)",
   'popover-background': '#1f1f1f',
   'popover-customize-border-color': '#3a3a3a',
-  'body-background': '#fff',
+  'body-background': '#333',
   'component-background': '#141414',
   'text-color': 'fade(@white, 85%)',
   'text-color-secondary': 'fade(@white, 45%)',

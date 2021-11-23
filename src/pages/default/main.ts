@@ -1,4 +1,8 @@
-import '/@/design/index.less';
+// import Design from '@q/design';
+// import '@q/design/dist/design.less';
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.less';
+// import '/@/design/index.less';
 import 'virtual:windi-base.css';
 import 'virtual:windi-components.css';
 import 'virtual:windi-utilities.css';
@@ -18,9 +22,9 @@ import { registerGlobComp } from '/@/components/registerGlobComp';
 // Importing on demand in local development will increase the number of browser requests by around 20%.
 // This may slow down the browser refresh speed.
 // Therefore, only enable on-demand importing in production environments .
-if (import.meta.env.DEV) {
-  import('ant-design-vue/dist/antd.less');
-}
+// if (import.meta.env.DEV) {
+//   import('ant-design-vue/dist/antd.less');
+// }
 
 async function bootstrap() {
   const app = createApp(App);
@@ -33,6 +37,7 @@ async function bootstrap() {
 
   // Register global components
   registerGlobComp(app);
+  app.use(Antd);
 
   // Multilingual configuration
   // Asynchronous case: language files may be obtained from the server side
